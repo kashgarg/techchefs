@@ -45,3 +45,11 @@ yarn-error.*
 
 # python
 **/__pycache__/
+**/test.py
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
