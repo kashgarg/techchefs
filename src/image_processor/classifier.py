@@ -34,6 +34,14 @@ class classifier:
 			if value > score:
 				result[name] = value
 		return result
+	
+	# getter
+	def get_all_result(self):
+		return self.__result
+	
+	def get_all_df(self):
+		pass
+
 			
 			
 

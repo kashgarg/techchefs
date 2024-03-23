@@ -30,16 +30,12 @@ yarn-error.*
 
 # python
 **/__pycache__/
-**/test.py
 *.pem
 
 # local env files
 .env*.local
 
-# typescript
-*.tsbuildinfo
-**/DS_Store
-
-# python
-**/__pycache__/
+# misc
 **/test.py
+**/test_data
+
