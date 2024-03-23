@@ -39,3 +39,5 @@ yarn-error.*
 **/test.py
 **/test_data
 
+# typescript
+*.tsbuildinfo
