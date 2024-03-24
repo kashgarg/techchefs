@@ -3,11 +3,12 @@ import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 const CameraButton = () => {
 
   const openCamera = async () => {
+		let content;
     const { status } = await Camera.requestCameraPermissionsAsync();
           if (status === 'granted') {
             console.log("Camera permission granted");
@@ -18,12 +19,17 @@ const CameraButton = () => {
 							aspect: [4, 3],
 							quality: 0.2
 						});
-            console.log(result["assets"][0]["base64"]);
+            content = result["assets"][0]["base64"];
+						console.log(content);
           } else {
               console.log("Camera permission denied");
           }
-
-          processImage(result.base64);
+					try {
+						await processImage(content);
+					} catch (err) {
+						console.log(err)
+					}
+          
   }
   
   // Send image to backend for processing 
@@ -31,9 +37,7 @@ const CameraButton = () => {
   const processImage = async (base64ImageData) => {
     try {
       // Make a POST request using Axios - just for image generation
-      const imageResponse = await axios.post('YOUR_BACKEND_API_ENDPOINT', {
-        imageData: base64ImageData,
-      });
+      const imageResponse = await axios.post('http://127.0.0.1:5000/images', [base64ImageData]);
 
       console.log('Image data sent successfully');
 
