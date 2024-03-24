@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
 import OutdoorFont from '../assets/Outdoor.otf'
 import CameraButton from './CameraButton';
+import RecipeDisplay from './RecipeDisplay';
 
 const LandingPage = () => {
     const [typedText, setTypedText] = useState('');
 
     useEffect(() => {
-        const fullText = "Turn leftovers into gourmet meals! Tech Chef guides you to culinary delights!";
+        const fullText = "Turn leftovers into gourmet meals! Tech Chef guides you to new culinary delights!";
         let currentIndex = 0;
         const interval = setInterval(() => {
           setTypedText(fullText.substring(0, currentIndex + 1));
@@ -15,7 +16,7 @@ const LandingPage = () => {
           if (currentIndex === fullText.length) {
             clearInterval(interval);
           }
-        }, 50);
+        }, 50); 
     
         return () => clearInterval(interval);
       }, []);
@@ -27,6 +28,7 @@ const LandingPage = () => {
             <Text style={styles.textHeader}>Tech Chef</Text>
             <Text style={styles.textBody}>{typedText}</Text>
             <CameraButton style={styles.button} />
+            <RecipeDisplay />
             
     </View>
   );
@@ -58,10 +60,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     textAlign: 'center',
-    paddingBottom: 100
+    paddingBottom: 100,
+    maxHeight: 100,
   },
-  button: {
-    paddingTop: 100
+  button: { 
   }
 });
 
