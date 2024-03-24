@@ -49,13 +49,13 @@ const styles = StyleSheet.create({
     height: 100,
   },
   textHeader: {
-    color: '#FFFFFF',
+    color: '#FFFDD7',
     fontFamily: 'OutdoorFont',
     fontWeight: 'bold',
     fontSize: 55,
   },
   textBody: {
-    color: '#FFFFFF',
+    color: '#FFFDD7',
     fontFamily: 'OutdoorFont',
     fontWeight: 'bold',
     fontSize: 20,
