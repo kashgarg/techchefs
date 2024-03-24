@@ -3,6 +3,7 @@ import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { Camera } from 'expo-camera';
 import * as ImagePicker from 'expo-image-picker';
 import { useState } from 'react';
+// import axios from 'axios';
 
 const CameraButton = () => {
 
@@ -21,7 +22,44 @@ const CameraButton = () => {
           } else {
               console.log("Camera permission denied");
           }
+
+          processImage(result.base64);
   }
+  
+  // Send image to backend for processing 
+
+  const processImage = async (base64ImageData) => {
+    try {
+      // Make a POST request using Axios - just for image generation
+      const imageResponse = await axios.post('YOUR_BACKEND_API_ENDPOINT', {
+        imageData: base64ImageData,
+      });
+
+      console.log('Image data sent successfully');
+
+      //  Log response from backend
+      console.log('Image Processing Endpoint Response:', imageResponse.data);
+
+      // Store the response recieved from image-processing endpoint 
+  
+      const extractedData = response.data;
+
+      // Make a POST request using Axios - just for recipe generation
+      const recipeResponse = await axios.post('YOUR_BACKEND_API_ENDPOINT', {
+        extractedData: extractedData
+      });
+
+      //  Log response from backend
+      console.log('Recipe Enpoint Reponse:', recipeResponse.data);
+
+      // Store the response recieved from recipe endpoint 
+
+
+    } catch (error) {
+      console.error('Error sending image data:', error);
+    }
+  }
+
   const styles = StyleSheet.create({
       button: {
         backgroundColor: '#F7EEDD',
