@@ -11,12 +11,13 @@ const CameraButton = () => {
           if (status === 'granted') {
             console.log("Camera permission granted");
             let result = await ImagePicker.launchCameraAsync({
-              mediaTypes: ImagePicker.MediaTypeOptions.Images,
-              allowsEditing: true,
-              aspect: [4, 3],
-              quality: 1,
-            });
-            console.log(`${result}`)
+							base64: true,
+							mediaTypes: ImagePicker.MediaTypeOptions.All,
+							allowsEditing: true,
+							aspect: [4, 3],
+							quality: 0.2
+						});
+            console.log(result["assets"][0]["base64"]);
           } else {
               console.log("Camera permission denied");
           }
