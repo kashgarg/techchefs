@@ -20,7 +20,7 @@ const CameraButton = () => {
 							quality: 0.2
 						});
             content = result["assets"][0]["base64"];
-						console.log(content);
+						// console.log(content);
           } else {
               console.log("Camera permission denied");
           }
@@ -37,24 +37,47 @@ const CameraButton = () => {
   const processImage = async (base64ImageData) => {
     try {
       // Make a POST request using Axios - just for image generation
-      const imageResponse = await axios.post('http://127.0.0.1:5000/images', [base64ImageData]);
+      // const imageResponse = await axios.post('http://127.0.0.1:5000/images', [base64ImageData]);
+			axios.post('https://techchefs-flask.vercel.app/images', [base64ImageData])
+			.then((response) => console.log(response.data))
+			.catch((error) => console.log(error));
+
+			// ws.onopen = function() {
+			// 	ws.send("Hello, server!"); // Send a message to the server
+			// };
+		
+			// ws.onmessage = function(event) {
+			// 	console.log("Message from server: ", event.data);
+			// };
+
+			// fetch("http://127.0.0.1:5000/images", {
+			// 	method: "POST",
+			// 	body: JSON.stringify([base64ImageData]),
+			// 	headers: {
+			// 		"Content-type": "application/json"
+			// 	}
+			// })
+			// 	.then((response) => response.json())
+			// 	.then((json) => console.log(json))
+			// 	.catch((err) => console.log(err));
+
 
       console.log('Image data sent successfully');
 
       //  Log response from backend
-      console.log('Image Processing Endpoint Response:', imageResponse.data);
+      // console.log('Image Processing Endpoint Response:', imageResponse.data);
 
       // Store the response recieved from image-processing endpoint 
   
-      const extractedData = response.data;
+      // const extractedData = response.data;
 
       // Make a POST request using Axios - just for recipe generation
-      const recipeResponse = await axios.post('YOUR_BACKEND_API_ENDPOINT', {
-        extractedData: extractedData
-      });
+      // const recipeResponse = await axios.post('YOUR_BACKEND_API_ENDPOINT', {
+      //   extractedData: extractedData
+      // });
 
       //  Log response from backend
-      console.log('Recipe Enpoint Reponse:', recipeResponse.data);
+      // console.log('Recipe Enpoint Reponse:', recipeResponse.data);
 
       // Store the response recieved from recipe endpoint 
 
