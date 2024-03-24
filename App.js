@@ -1,6 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, } from 'react-native';
-import CameraButton from './components/CameraButton';
 import LandingPage from './components/LandingPage';
 
 export default function App() {
@@ -9,11 +6,4 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#08d',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+

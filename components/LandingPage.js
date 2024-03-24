@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
-import OutdoorFont from '../assets/Outdoor.otf'
 import CameraButton from './CameraButton';
 import RecipeDisplay from './RecipeDisplay';
 
@@ -41,7 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: 'top',
     alignItems: 'center',
     flexDirection: 'column',
-    paddingVertical: 100,
+    paddingVertical: 75,
     paddingHorizontal: 50,
   },
   image: {
@@ -50,17 +49,17 @@ const styles = StyleSheet.create({
   },
   textHeader: {
     color: '#FFFDD7',
-    fontFamily: 'OutdoorFont',
+    fontFamily: 'Arial',
     fontWeight: 'bold',
     fontSize: 55,
   },
   textBody: {
     color: '#FFFDD7',
-    fontFamily: 'OutdoorFont',
+    fontFamily: 'Arial',
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 25,
     textAlign: 'center',
-    paddingBottom: 100,
+    paddingBottom: 130,
     maxHeight: 100,
   },
   button: { 

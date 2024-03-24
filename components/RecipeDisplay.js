@@ -11,28 +11,21 @@ const RecipeDisplay = ({responseData}) => {
                 </ScrollView>
         </View>
       );
-
     }
 
 const styles = StyleSheet.create({
     container: {
         marginTop: 25,
     },
-
     scrollView: {
-
     },
-
     textBody: {
         color: '#FFFDD7',
         fontFamily: 'Arial',
-        fontSize: 25,
+        fontSize: 22,
         textAlign: 'center',
         paddingBottom: 500,
       }
-
-
-
 }
 );
 
